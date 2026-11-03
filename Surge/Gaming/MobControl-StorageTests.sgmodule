@@ -1,7 +1,7 @@
 #!name=Mob Control - Storage Tests
 #!desc=玩家存檔回應實驗；已啟用小量卡片、卡包累積值、商店數量及技能測試。可能被遊戲同步保存。請先保留原始封存，一次只開一項；未驗證遊戲效果。
 #!category=Gaming
-#!arguments=CardPackRefreshUnix:-1,CardPackConsumed:-1,CardId:5,CardCount:25,CardUpgradeCoins:-1,CardBlueprints:-1,BuildingId:-1,UpgradeEarlierSeconds:0,JobEarlierSeconds:0,JobState:-1,ChargeSpeedLevel:-1,PackPity:0.01,ShopCardId:2,ShopCardAmount:25,ShopCardPrice:-1,SkillId:3,SkillLevel:4,SeasonPoints:-1,SeasonTotalPoints:-1,PowerPathPoints:-1,GatesPowerUpCount:2,FireRatePowerUpCount:2
+#!arguments=CardPackRefreshUnix:-1,CardPackConsumed:-1,CardId:20,CardCount:-1,CardUpgradeCoins:-1,CardBlueprints:250,BuildingId:-1,UpgradeEarlierSeconds:0,JobEarlierSeconds:0,JobState:-1,ChargeSpeedLevel:-1,PackPity:0.01,ShopCardId:2,ShopCardAmount:25,ShopCardPrice:-1,SkillId:3,SkillLevel:4,SeasonPoints:-1,SeasonTotalPoints:-1,PowerPathPoints:-1,GatesPowerUpCount:2,FireRatePowerUpCount:2
 #!arguments-desc=GatesPowerUpCount/FireRatePowerUpCount=十倍閘門/雙倍射速庫存測試，預設各2，-1不改；新增：PackPity=卡包累積值（非已知機率）；ShopCardId/ShopCardAmount/ShopCardPrice=指定商店卡片/數量/價格；SkillId/SkillLevel=指定技能/等級（名稱未知）；SeasonPoints/SeasonTotalPoints/PowerPathPoints=積分，預設-1不改。-1不改，0可設為零；CardId/BuildingId=-1不選取。CardPackRefreshUnix=下次刷新Unix秒；CardPackConsumed=已消耗數。CardCount/CardUpgradeCoins/CardBlueprints=指定卡片張數/剩餘金幣/藍圖（只改已有欄位）。UpgradeEarlierSeconds/JobEarlierSeconds=指定建築開始時間提前秒數，0不改；JobState狀態意義未知先保留-1。ChargeSpeedLevel原50，勿超出已知範圍。
 # 2026-11-03 FireRatePowerUp前次實測無效（仍需影片）；依未修改存檔及畫面對照重新開放驗證，不代表已有效。
 # 2026-11-03 使用者實測無效：SkipetsData.m_SkipetsStorage 收支差額（可用Skip’Its未增加）。
@@ -10,7 +10,7 @@
 # 可與 MobControl-Progression 同時使用，攔截不同 API。
 # 只改 /v2/storage 的回應；不修改上傳請求、版本、使用者ID或購買權益。
 # 但遊戲可能將收到的值寫回雲端，因此停用模組不保證復原。
-# 預設固定覆寫：卡片ID5張數25、PackAccumulatedPitty=0.01、商店卡片ID2數量25、技能ID3等級4。
+# 預設固定覆寫：卡片ID20藍圖250（張數/升級金幣不改）、PackAccumulatedPitty=0.01、商店卡片ID2數量25、技能ID3等級4。
 # 每次下載皆覆寫為指定值，不是增量；遊戲可能忽略或同步。停用不保證復原。
 # 不產生虛構Gift，不修改未知EGS重置時間。相同紀錄中省略的Id按0辨識。
 # CardPackRefreshUnix例：0代表1970年，請使用有意義的Unix時間；NextRefresh輸出UTC Z格式。
